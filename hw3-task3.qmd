@@ -1,0 +1,19 @@
+# High-Dimension data in a Machine Learning Context
+
+## Intro
+This quarto document summarizes a key takeaway about highly dimensional data from Chapter 6.4 Considerations in High Dimensions in "An Introduction to Statistical Learning with applications in Python."
+
+## Concept: interpreting model outputs from highly-dimensional data - how do we meaningfully interpret model significance?
+
+## Prompt 1:
+In a multidimensional machine learning setting, if there are many correlated predictors, how can we reasonable use a lasso or ridge regression to rule out features that might be correlated. Reading this passage: 
+
+"When we perform the lasso, ridge regression, or other regression procedures in the high-dimensional setting, we must be quite cautious in the way that we report the results obtained. In Chapter 3, we learned about multicollinearity, the concept that the variables in a regression might be correlated with each other. In the high-dimensional setting, the multicollinearity problem is extreme: any variable in the model can be written as a linear combination of all of the other variables in the model. Essentially, this means that we can never know exactly which variables (if any) truly are predictive of the outcome, and we can never identify the best coefficients for use in the regression. At most, we can hope to assign large regression coefficients to variables that are correlated with the variables that truly are predictive of the outcome. 6.5 Lab: Linear Models and Regularization Methods 267 For instance, suppose that we are trying to predict blood pressure on the basis of half a million SNPs, and that forward stepwise selection indicates that 17 of those SNPs lead to a good predictive model on the training data. It would be incorrect to conclude that these 17 SNPs predict blood pressure more effectively than the other SNPs not included in the model. There are likely to be many sets of 17 SNPs that would predict blood pressure just as well as the selected model. If we were to obtain an independent data set and perform forward stepwise selection on that data set, we would likely obtain a model containing a different, and perhaps even non-overlapping, set of SNPs. This does not detract from the value of the model obtained— for instance, the model might turn out to be very effective in predicting blood pressure on an independent set of patients, and might be clinically useful for physicians. But we must be careful not to overstate the results obtained, and to make it clear that what we have identified is simply one of many possible models for predicting blood pressure, and that it must be further validated on independent data sets." 
+
+I am confused by how the output of any classic machine learning regression method how be interpretable. Explain this concept and give an example of how this might be applied in the context that the book mentions.	
+
+## Prompt 2: 
+Is the utility in this largely comparing different models or datasets to say that certain ones have better predictive power? Is there any way to concretely estimate predictor correlation to estimate how much explanation in variability might be removed by using a punitive method like lasso?
+
+## Generative AI reflection
+I prompted Claude AI with my questions to clarify how a person using a highly dimensional dataset might actually interpret their model's outcomes. I was confused by the idea that we cannot truly say which predictors are meaningful, but rather say that the data did in fact contain meaningful predictors. I initially got a sort of overview example of how you might interpret the study mentioned in the book, and what a lasso or ridge regression is and is not good for in this context. My second prompt helped me confirm my assumption that these models are largely useful in comparison to each other, and don't stand alone very well, and that there are methods out there that can explain predictor correlation.
